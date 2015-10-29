@@ -1,4 +1,4 @@
-Role Name
+Self Signed SSL Certificate Generator
 =========
 **DO NOT USE THIS** if you handle sensitive information such as personally-indentifyable information or payment card data. The generated keys are only suitable to protect against passive snooping. Connections can still be MITM'd by an active adversary because these certificates are not signed by a trusted CA.
 
