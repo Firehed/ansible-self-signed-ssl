@@ -15,8 +15,9 @@
     -new \
     -subj '{{ self_signed_ssl_subject }}'
     -key '{{ self_signed_ssl_key }}' \
-    -out '{{ self_signed_ssl_csr }}' \
-    creates="{{ self_signed_ssl_csr }}"
+    -out '{{ self_signed_ssl_csr }}'
+  args:
+    creates: "{{ self_signed_ssl_csr }}"
 
 - name: Generate Self-signed Certificate
   command: openssl req \
@@ -24,8 +25,9 @@
     -days {{ self_signed_ssl_cert_lifetime }} \
     -key '{{ self_signed_ssl_key }}' \
     -in '{{ self_signed_ssl_csr }}' \
-    -out '{{ self_signed_ssl_cert }}' \
-    creates='{{ self_signed_ssl_cert }}'
+    -out '{{ self_signed_ssl_cert }}'
+  args:
+    creates: '{{ self_signed_ssl_cert }}'
 
 - include: dhparam.yml
   when: self_signed_ssl_dh_size >= 2048
