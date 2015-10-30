@@ -26,3 +26,6 @@
     -in '{{ self_signed_ssl_csr }}' \
     -out '{{ self_signed_ssl_cert }}' \
     creates='{{ self_signed_ssl_cert }}'
+
+- include: dhparam.yml
+  when: self_signed_ssl_dh_size >= 2048

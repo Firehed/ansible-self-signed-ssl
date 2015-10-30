@@ -7,6 +7,7 @@ self_signed_ssl_city: ""
 self_signed_ssl_org: ""
 
 self_signed_ssl_dir: /etc/ssl/{{ self_signed_ssl_domain }}
+self_signed_ssl_dh_size: 2048
 self_signed_ssl_key_size: 2048
 self_signed_ssl_ecc: no
 
@@ -14,6 +15,7 @@ self_signed_ssl_ecc: no
 self_signed_ssl_key_file: key.pem
 self_signed_ssl_csr_file: csr.pem
 self_signed_ssl_cert_file: cert.pem
+self_signed_ssl_dhparam_file: dhparam.pem
 
 # Public key lifetime in days; defaults to 5 years
 self_signed_ssl_cert_lifetime: 1825
@@ -22,6 +24,7 @@ self_signed_ssl_cert_lifetime: 1825
 self_signed_ssl_key: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_key_file }}"
 self_signed_ssl_csr: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_csr_file }}"
 self_signed_ssl_cert: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_cert_file }}"
+self_signed_ssl_dhparam: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_dhparam_file }}"
 
 self_signed_ssl_subject: "/C={{ self_signed_ssl_country }}/ST={{ self_signed_ssl_state }}/L={{ self_signed_ssl_city }}/O={{ self_signed_ssl_org }}/CN={{ self_signed_ssl_domain }}"
 

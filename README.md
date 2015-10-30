@@ -21,6 +21,7 @@ Role Variables
 	self_signed_ssl_org: ""
 	
 	self_signed_ssl_dir: /etc/ssl/{{ self_signed_ssl_domain }}
+	self_signed_ssl_dh_size: 2048
 	self_signed_ssl_key_size: 2048
 	self_signed_ssl_ecc: no
 	
@@ -28,10 +29,14 @@ Role Variables
 	self_signed_ssl_key_file: key.pem
 	self_signed_ssl_csr_file: csr.pem
 	self_signed_ssl_cert_file: cert.pem
+	self_signed_ssl_dhparam_file: dhparam.pem
 	
 	# Public key lifetime in days; defaults to 5 years
 	self_signed_ssl_cert_lifetime: 1825
 
+To skip Diffie-Hellman params file generation, set `dh_size` to 0.
+
+To generate an EC private key, set `ecc` to `yes`.
 
 Example Playbook
 ----------------
